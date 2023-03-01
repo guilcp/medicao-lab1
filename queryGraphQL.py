@@ -1,6 +1,7 @@
 
 import requests
 import csv
+import datetime
 
 headers = {"Authorization": "bearer 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"}
 
@@ -42,24 +43,18 @@ query = """
 endCursor = "null"
 
 while (len(allResults) < 1000):
-    # print(query)
     request = requests.post('https://api.github.com/graphql',
                             json={'query': query}, headers=headers)
     result = request.json()
-    # print(result)
     allResults += result['data']['search']['nodes']
     query = query.replace(endCursor, '"'+result['data']
                           ['search']['pageInfo']['endCursor']+'"')
     endCursor = '"'+result['data']['search']['pageInfo']['endCursor']+'"'
-    
-
 
 
 print("All Results - {}".format(allResults))
 print("All Results Size - ")
 print(len(allResults))
-
-# quit()
 
 fields = list(allResults[0].keys())
 
@@ -67,4 +62,18 @@ with open('dados.csv', 'w') as f:
     write = csv.DictWriter(f, fieldnames=fields, dialect='unix')
     write.writeheader()
     for result in allResults:
+        result['pullRequests'] = result['pullRequests']['totalCount']
+        result['releases'] = result['releases']['totalCount']
+        if result['primaryLanguage'] is not None:
+            result['primaryLanguage'] = result['primaryLanguage']['name']
+        result['issues'] = result['issues']['totalCount']
+        result['closedIssues'] = result['closedIssues']['totalCount']
+        createdAt = datetime.datetime.strptime(
+            result['createdAt'], '%Y-%m-%dT%H:%M:%SZ')
+        result['createdAt'] = datetime.datetime.strftime(
+            createdAt, '%d/%m/%Y %H:%M:%S')
+        updatedAt = datetime.datetime.strptime(
+            result['updatedAt'], '%Y-%m-%dT%H:%M:%SZ')
+        result['updatedAt'] = datetime.datetime.strftime(
+            updatedAt, '%d/%m/%Y %H:%M:%S')
         write.writerow(result)
