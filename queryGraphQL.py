@@ -1,9 +1,9 @@
 
 import requests
-import csv
+import pandas as pd
 import datetime
 
-headers = {"Authorization": "bearer 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"}
+headers = {"Authorization": "bearer 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"}
 
 allResults = []
 
@@ -46,34 +46,44 @@ while (len(allResults) < 1000):
     request = requests.post('https://api.github.com/graphql',
                             json={'query': query}, headers=headers)
     result = request.json()
-    allResults += result['data']['search']['nodes']
-    query = query.replace(endCursor, '"'+result['data']
-                          ['search']['pageInfo']['endCursor']+'"')
-    endCursor = '"'+result['data']['search']['pageInfo']['endCursor']+'"'
+    if 'data' in result:
+        allResults += result['data']['search']['nodes']
+        query = query.replace(endCursor, '"'+result['data']
+                              ['search']['pageInfo']['endCursor']+'"')
+        endCursor = '"'+result['data']['search']['pageInfo']['endCursor']+'"'
+    else:
+        continue
 
 
 print("All Results - {}".format(allResults))
 print("All Results Size - ")
 print(len(allResults))
 
-fields = list(allResults[0].keys())
+# fields = list(allResults[0].keys())
 
-with open('dados.csv', 'w') as f:
-    write = csv.DictWriter(f, fieldnames=fields, dialect='unix')
-    write.writeheader()
-    for result in allResults:
-        result['pullRequests'] = result['pullRequests']['totalCount']
-        result['releases'] = result['releases']['totalCount']
-        if result['primaryLanguage'] is not None:
-            result['primaryLanguage'] = result['primaryLanguage']['name']
-        result['issues'] = result['issues']['totalCount']
-        result['closedIssues'] = result['closedIssues']['totalCount']
-        createdAt = datetime.datetime.strptime(
-            result['createdAt'], '%Y-%m-%dT%H:%M:%SZ')
-        result['createdAt'] = datetime.datetime.strftime(
-            createdAt, '%d/%m/%Y %H:%M:%S')
-        updatedAt = datetime.datetime.strptime(
-            result['updatedAt'], '%Y-%m-%dT%H:%M:%SZ')
-        result['updatedAt'] = datetime.datetime.strftime(
-            updatedAt, '%d/%m/%Y %H:%M:%S')
-        write.writerow(result)
+# with open('dados.csv', 'w') as f:
+# write = csv.DictWriter(f, fieldnames=fields, dialect='unix')
+# write.writeheader()
+
+for result in allResults:
+    result['pullRequests'] = result['pullRequests']['totalCount']
+    result['releases'] = result['releases']['totalCount']
+    if result['primaryLanguage'] is not None:
+        result['primaryLanguage'] = result['primaryLanguage']['name']
+    result['issues'] = result['issues']['totalCount']
+    result['closedIssues'] = result['closedIssues']['totalCount']
+    createdAt = datetime.datetime.strptime(
+        result['createdAt'], '%Y-%m-%dT%H:%M:%SZ')
+    result['createdAt'] = datetime.datetime.strftime(
+        createdAt, '%d/%m/%Y %H:%M:%S')
+    updatedAt = datetime.datetime.strptime(
+        result['updatedAt'], '%Y-%m-%dT%H:%M:%SZ')
+    result['updatedAt'] = datetime.datetime.strftime(
+        updatedAt, '%d/%m/%Y %H:%M:%S')
+
+
+df = pd.DataFrame(allResults)
+
+df.to_csv('dados.csv', index=False)
+
+# write.writerow(result)
