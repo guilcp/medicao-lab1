@@ -72,30 +72,40 @@ def age(createdAt):
   return age
 
 def ageInMonths(createdAt):
-  time = today - updatedAt
+  time = today - createdAt
   months = 0
-  if time.seconds == 0 and time.microseconds == 0:
-    months = time.days/30
-  elif time.seconds == 0:
-    months = time.days/30 + time.microseconds/(3600000*30)
-  elif time.microseconds == 0:
-    months = time.days + time.seconds/(3600*30)
-  else:
-    months = time.days/30 + time.seconds/(3600*30) + time.microseconds/(3600000*30)
+  days = 0
+  seconds = 0
+  microseconds = 0
+
+  if time.days > 0:
+    days = time.days/30
+  if time.seconds > 0:
+    seconds = time.seconds/(3600*30)
+  if time.microseconds > 0:
+    microseconds = time.microseconds/(3600000*30)
+
+  months = days + seconds + microseconds
+
   return months
 
 def differenceInDays(updatedAt):
   time = today - updatedAt
+  result = 0
   days = 0
-  if time.seconds == 0 and time.microseconds == 0:
+  seconds = 0
+  microseconds = 0
+
+  if time.days > 0:
     days = time.days
-  elif time.seconds == 0:
-    days = time.days + time.microseconds/3600000
-  elif time.microseconds == 0:
-    days = time.days + time.seconds/3600
-  else:
-    days = time.days + time.seconds/3600 + time.microseconds/3600000
-  return days
+  if time.seconds > 0:
+    seconds = time.seconds/3600
+  if time.microseconds > 0:
+    microseconds = time.microseconds/3600000
+
+  result = days + seconds + microseconds
+
+  return result
 
 for result in allResults:
     result['pullRequests'] = result['pullRequests']['totalCount']
@@ -116,8 +126,9 @@ for result in allResults:
         updatedAt, '%d/%m/%Y %H:%M:%S')
     result['ageInYears'] = age(createdAt)
     months = ageInMonths(createdAt)
+    result['ageInMonths'] = months
     if months > 0:
-      result['releasesMonth'] = releases/ageInMonths(createdAt)
+      result['releasesMonth'] = releases/months
     result['daysFromUpdate'] = differenceInDays(updatedAt)
 
 
@@ -125,20 +136,20 @@ df = pd.DataFrame(allResults)
 
 df.to_csv('dados.csv', index=False)
 
-ageHist = df.hist(column='ageInYears',bins=10)
+ageHist = df.hist(column='ageInYears',bins=7)
 
 plot.title('Quantidade de Repositórios x Idade (anos)')
 
-plot.show()
+plot.savefig('graficos/ageHist.png')
 
-pullRequestHist = df.hist(column='pullRequests',bins=10)
+pullRequestHist = df.hist(column='pullRequests',bins=6)
 
 plot.title('Quantidade de Repositórios x Número de Pull Requests')
 
-plot.show()
+plot.savefig('graficos/prHist.png')
 
-releasesHist = df.hist(column='releasesMonth',bins=10)
+releasesHist = df.hist(column='releasesMonth',bins=4)
 
 plot.title('Quantidade de Repositórios x Número de Releases por Mês')
 
-plot.show()
+plot.savefig('graficos/releaseHist.png')

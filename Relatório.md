@@ -65,11 +65,9 @@ Utilizando os dados retornados, são calculadas algumas métricas necessárias p
 
 Ao final da execução do script, é salvo um csv com os dados do projeto e são plotados gráficos para análise dos dados.
 
-# 4. Resultados Obtidos
+# 4. Resultados
 
-# 5. Apresentação dos Resultados
-
-# 6. Discussão das Hipóteses
+# 6. Discussão
 
 
 
