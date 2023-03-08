@@ -156,11 +156,11 @@ Os resultados obtidos indicam que grande parcela dos repositórios populares nã
 
 **RQ 03. Sistemas populares lançam releases com frequência?**
 	
-Segundo os resultados, os repositórios populares possuem em média 6 releases por mês, sendo poucos os que possuem mais de 6 releases por mês. Assim, conclui-se que está em concordância com a hipótese proposta, pois como a mesma baseia-se no uso de metodologias ágeis, em específico SCRUM, o qual não estabelece tempo mínimo de sprint, pode-se observar que a quantidade de releases em 30 dias respeitaria o princípio de entrega continua do framework. Além disso, a frequência de 6 releases no período de 30 dias contabiliza 1 release a cada 5 dias, o que pode ser considerado uma frequência adequada.
+Segundo os resultados, os repositórios populares possuemm, em sua marioria, até 6 releases por mês, sendo poucos os que superam esse valor. Analisando a mediana obtida, percebe-se que 50% dos repositórios tem 0,2249 releases/mês, ou seja, menos de uma release por mês durante a vida do projeto. Assim, conclui-se que não está em concordância com a hipótese proposta, já que grande parte dos repositórios tem menos de uma release mensal. Baseando no princípio de entrega contínua do SCRUM, o tempo entre releases obtido não seria adequado.
 
 **RQ 04. Sistemas populares são atualizados com frequência?**
 
-De acordo com os resultados obtidos, a maior parte dos repositórios são atualizados na frequência de 3 dias, podendo concluir que os sistemas populares são frequentemente atualizados, pois 3 dias não representam ameaça ao estado de funcionamento do sistema.
+De acordo com os resultados obtidos, a maior parte dos repositórios são atualizados na frequência de até 3 dias, podendo concluir que os sistemas populares são frequentemente atualizados, pois 3 dias não representam ameaça ao estado de funcionamento do sistema.
 
 **RQ 05. Sistemas populares são escritos nas linguagens mais populares?**
 	
