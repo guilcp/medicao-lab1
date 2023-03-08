@@ -65,20 +65,47 @@ while (len(allResults) < 1000):
         else:
             continue
 
+today = datetime.datetime.utcnow()
 
-print("All Results - {}".format(allResults))
-print("All Results Size - ")
-print(len(allResults))
+def age(createdAt):
+  age = today.year - createdAt.year - ((today.month, today.day) < (createdAt.month, createdAt.day))
+  return age
 
-# fields = list(allResults[0].keys())
+def ageInMonths(createdAt):
+  time = today - updatedAt
+  months = 0
+  if time.seconds == 0 and time.microseconds == 0:
+    months = time.days/30
+  elif time.seconds == 0:
+    months = time.days/30 + time.microseconds/(3600000*30)
+  elif time.microseconds == 0:
+    months = time.days + time.seconds/(3600*30)
+  else:
+    months = time.days/30 + time.seconds/(3600*30) + time.microseconds/(3600000*30)
+  return months
+
+def differenceInDays(updatedAt):
+  time = today - updatedAt
+  days = 0
+  if time.seconds == 0 and time.microseconds == 0:
+    days = time.days
+  elif time.seconds == 0:
+    days = time.days + time.microseconds/3600000
+  elif time.microseconds == 0:
+    days = time.days + time.seconds/3600
+  else:
+    days = time.days + time.seconds/3600 + time.microseconds/3600000
+  return days
 
 for result in allResults:
     result['pullRequests'] = result['pullRequests']['totalCount']
-    result['releases'] = result['releases']['totalCount']
+    releases = result['releases']['totalCount']
+    result['releases'] = releases
     if result['primaryLanguage'] is not None:
         result['primaryLanguage'] = result['primaryLanguage']['name']
     result['issues'] = result['issues']['totalCount']
-    result['closedIssues'] = result['closedIssues']['totalCount']
+    closedIssues = result['closedIssues']['totalCount']
+    result['closedIssues'] = closedIssues
     createdAt = datetime.datetime.strptime(
         result['createdAt'], '%Y-%m-%dT%H:%M:%SZ')
     result['createdAt'] = datetime.datetime.strftime(
@@ -87,12 +114,31 @@ for result in allResults:
         result['updatedAt'], '%Y-%m-%dT%H:%M:%SZ')
     result['updatedAt'] = datetime.datetime.strftime(
         updatedAt, '%d/%m/%Y %H:%M:%S')
+    result['ageInYears'] = age(createdAt)
+    months = ageInMonths(createdAt)
+    if months > 0:
+      result['releasesMonth'] = releases/ageInMonths(createdAt)
+    result['daysFromUpdate'] = differenceInDays(updatedAt)
 
 
 df = pd.DataFrame(allResults)
 
 df.to_csv('dados.csv', index=False)
 
-b_plot = df.boxplot(column='pullRequests')
-b_plot.plot()
+ageHist = df.hist(column='ageInYears',bins=10)
+
+plot.title('Quantidade de Repositórios x Idade (anos)')
+
+plot.show()
+
+pullRequestHist = df.hist(column='pullRequests',bins=10)
+
+plot.title('Quantidade de Repositórios x Número de Pull Requests')
+
+plot.show()
+
+releasesHist = df.hist(column='releasesMonth',bins=10)
+
+plot.title('Quantidade de Repositórios x Número de Releases por Mês')
+
 plot.show()
