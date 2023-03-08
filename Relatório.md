@@ -67,7 +67,51 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 
 # 4. Resultados
 
-# 6. Discussão
+![Figura 1 - Histograma de Idade dos Repositórios](graficos/grafico-rq1.png "Figura 1 - Histograma de Idade dos Repositórios")
+
+**Figura 1 - Histograma de Idade dos Repositórios**
+
+![Tabela 1 - Histograma de Idade dos Repositórios](tabelas/tabela-rq1.jpg "Tabela 1 - Histograma de Idade dos Repositórios")
+
+**Tabela 1 - Histograma de Idade dos Repositórios**
+
+![Figura 2 - Histograma de Idade dos Repositórios](graficos/grafico-rq2.png "Figura 2 - Histograma de Idade dos Repositórios")
+
+**Figura 2 - Histograma de Idade dos Repositórios**
+
+![Tabela 2 - Histograma de Idade dos Repositórios](tabelas/tabela-rq2.jpg "Tabela 2 - Histograma de Idade dos Repositórios")
+
+**Tabela 2 - Histograma de Idade dos Repositórios**
+
+![Figura 3 - Histograma de Idade dos Repositórios](graficos/grafico-rq3.png "Figura 3 - Histograma de Idade dos Repositórios")
+
+**Figura 3 - Histograma de Idade dos Repositórios**
+
+![Tabela 3 - Histograma de Idade dos Repositórios](tabelas/tabela-rq3.jpg "Tabela 3 - Histograma de Idade dos Repositórios")
+
+**Tabela 3 - Histograma de Idade dos Repositórioss**
+
+![Figura 4 - Histograma de Idade dos Repositórios](graficos/grafico-rq4.png "Figura 4 - Histograma de Idade dos Repositórios")
+
+**Figura 4 - Histograma de Idade dos Repositórios**
+
+![Tabela 4 - Histograma de Idade dos Repositórios](tabelas/tabela-rq4.jpg "Tabela 4 - Histograma de Idade dos Repositórios")
+
+**Tabela 4 - Histograma de Idade dos Repositórios**
+
+![Tabela 5 - Histograma de Idade dos Repositórios](tabelas/tabela-rq5.jpg "Tabela 5 - Histograma de Idade dos Repositórios")
+
+**Tabela 5 - Histograma de Idade dos Repositórios**
+
+![Figura 6 - Histograma de Idade dos Repositórios](graficos/grafico-rq6.png "Figura 6 - Histograma de Idade dos Repositórios")
+
+**Figura 6 - Histograma de Idade dos Repositórios**
+
+![Tabela 6 - Histograma de Idade dos Repositórios](tabelas/tabela-rq6.jpg "Tabela 6 - Histograma de Idade dos Repositórios")
+
+**Tabela 6 - Histograma de Idade dos Repositórios**
+
+# 5. Discussão
 
 
 
