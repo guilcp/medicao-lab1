@@ -67,6 +67,12 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 
 # 4. Resultados
 
+Após a coleta dos dados pela API do GitHub obtem-se:
+
+## **4.1. RQ 01**
+
+690 repositórios populares possuem idade maior que 5 anos, essa parcela representa 69% do total. Os repositórios possuem em média 7 anos e mediana das idades é também 7 anos, indicando que a maior densidade das idades se encontra por volta desse valor - ver Figura 1.
+
 ![Figura 1 - Histograma de Idade dos Repositórios](graficos/grafico-rq1.png "Figura 1 - Histograma de Idade dos Repositórios")
 
 **Figura 1 - Histograma de Idade dos Repositórios**
@@ -74,6 +80,11 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 ![Tabela 1 - Histograma de Idade dos Repositórios](tabelas/tabela-rq1.jpg "Tabela 1 - Histograma de Idade dos Repositórios")
 
 **Tabela 1 - Histograma de Idade dos Repositórios**
+<br></br>
+
+## **4.2. RQ 02**
+
+Em relação as contribuições externas, 949 repositórios possuem até 15 mil pull requests, vide Figura 2 e Tabela 2. A mediana dos valores é de 811 pull requests, indicando que 50% dos repositórios tem 811 ou menos contribuições externas aceitas e corroborando com a distribuição do histograma abaixo. A média é de 3569 pull requests por repositório.
 
 ![Figura 2 - Histograma de Idade dos Repositórios](graficos/grafico-rq2.png "Figura 2 - Histograma de Idade dos Repositórios")
 
@@ -82,6 +93,11 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 ![Tabela 2 - Histograma de Idade dos Repositórios](tabelas/tabela-rq2.jpg "Tabela 2 - Histograma de Idade dos Repositórios")
 
 **Tabela 2 - Histograma de Idade dos Repositórios**
+<br></br>
+
+## **4.3. RQ 03**
+
+Analisando a Tabela 3, é possível perceber que 976 repositórios tem a média de 6 releases por mês, porém a mediana dos valores é de 0,2249, indicando que 50% dos valores são iguais ou menores do que 0,2249. A média se encontra de certa forma próxima a esse valor, sendo 1,0274 releases/mês/repositório, o que mostra que poucos outros repositórios extrapolam o valor da mediana.
 
 ![Figura 3 - Histograma de Idade dos Repositórios](graficos/grafico-rq3.png "Figura 3 - Histograma de Idade dos Repositórios")
 
@@ -90,6 +106,11 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 ![Tabela 3 - Histograma de Idade dos Repositórios](tabelas/tabela-rq3.jpg "Tabela 3 - Histograma de Idade dos Repositórios")
 
 **Tabela 3 - Histograma de Idade dos Repositórioss**
+<br></br>
+
+## **4.4. RQ 04**
+
+Observa-se no Gráfico 4 que grande parte dos repositórios tem até 3 dias da última atualização. Detalhando os valores obtidos, obtem-se a média de 2,4121 dias de tempo atualização e uma mediana de 1,2187, indicando que aproximadamente 50% dos repositórios tiverem atualização no dia anterior.
 
 ![Figura 4 - Histograma de Idade dos Repositórios](graficos/grafico-rq4.png "Figura 4 - Histograma de Idade dos Repositórios")
 
@@ -98,10 +119,20 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 ![Tabela 4 - Histograma de Idade dos Repositórios](tabelas/tabela-rq4.jpg "Tabela 4 - Histograma de Idade dos Repositórios")
 
 **Tabela 4 - Histograma de Idade dos Repositórios**
+<br></br>
+
+## **4.5. RQ 05**
+
+A tabela abaixo mostra as 10 linguagens mais populares de 2022 e quantos repositórios da coleta utilizam elas como linguagem principal. No total, 652 repositórios se encaixam, representando 65,2% de todos os repositórios coletados.
 
 ![Tabela 5 - Histograma de Idade dos Repositórios](tabelas/tabela-rq5.jpg "Tabela 5 - Histograma de Idade dos Repositórios")
 
 **Tabela 5 - Histograma de Idade dos Repositórios**
+<br></br>
+
+## **4.6. RQ 06**
+
+Observa-se na Figura 6 e na Tabela 6 que grande parte dos repositórios possuem mais de 50% de issues fechadas. A mediana desses valores é de 85,99%, indicando que 50% dos repositórios possuem quase a totatalidade de issues como issues fechadas. A média das porcentagens é de 76,78%, corroborando com a concentração mostrada no gráfico.
 
 ![Figura 6 - Histograma de Idade dos Repositórios](graficos/grafico-rq6.png "Figura 6 - Histograma de Idade dos Repositórios")
 
