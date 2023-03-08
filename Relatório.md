@@ -67,6 +67,12 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 
 # 4. Resultados
 
+Após a coleta dos dados pela API do GitHub obtem-se:
+
+## **4.1. RQ 01**
+
+690 repositórios populares possuem idade maior que 5 anos, essa parcela representa 69% do total. Os repositórios possuem em média 7 anos e mediana das idades é também 7 anos, indicando que a maior densidade das idades se encontra por volta desse valor - ver Figura 1.
+
 ![Figura 1 - Histograma de Idade dos Repositórios](graficos/grafico-rq1.png "Figura 1 - Histograma de Idade dos Repositórios")
 
 **Figura 1 - Histograma de Idade dos Repositórios**
@@ -74,45 +80,95 @@ Ao final da execução do script, é salvo um csv com os dados do projeto e são
 ![Tabela 1 - Histograma de Idade dos Repositórios](tabelas/tabela-rq1.jpg "Tabela 1 - Histograma de Idade dos Repositórios")
 
 **Tabela 1 - Histograma de Idade dos Repositórios**
+<br></br>
 
-![Figura 2 - Histograma de Idade dos Repositórios](graficos/grafico-rq2.png "Figura 2 - Histograma de Idade dos Repositórios")
+## **4.2. RQ 02**
 
-**Figura 2 - Histograma de Idade dos Repositórios**
+Em relação as contribuições externas, 949 repositórios possuem até 15 mil pull requests, vide Figura 2 e Tabela 2. A mediana dos valores é de 811 pull requests, indicando que 50% dos repositórios tem 811 ou menos contribuições externas aceitas e corroborando com a distribuição do histograma abaixo. A média é de 3569 pull requests por repositório.
 
-![Tabela 2 - Histograma de Idade dos Repositórios](tabelas/tabela-rq2.jpg "Tabela 2 - Histograma de Idade dos Repositórios")
+![Figura 2 - Histograma de Pull Requests](graficos/grafico-rq2.png "Figura 2 - Histograma de Pull Requests")
 
-**Tabela 2 - Histograma de Idade dos Repositórios**
+**Figura 2 - Histograma de Pull Requests**
 
-![Figura 3 - Histograma de Idade dos Repositórios](graficos/grafico-rq3.png "Figura 3 - Histograma de Idade dos Repositórios")
+![Tabela 2 - Tabela de Pull Requests](tabelas/tabela-rq2.jpg "Tabela 2 -Tabela de Pull Requests")
 
-**Figura 3 - Histograma de Idade dos Repositórios**
+**Tabela 2 - Tabela de Pull Requests**
+<br></br>
 
-![Tabela 3 - Histograma de Idade dos Repositórios](tabelas/tabela-rq3.jpg "Tabela 3 - Histograma de Idade dos Repositórios")
+## **4.3. RQ 03**
 
-**Tabela 3 - Histograma de Idade dos Repositórioss**
+Analisando a Tabela 3, é possível perceber que 976 repositórios tem a média de 6 releases por mês, porém a mediana dos valores é de 0,2249, indicando que 50% dos valores são iguais ou menores do que 0,2249. A média se encontra de certa forma próxima a esse valor, sendo 1,0274 releases/mês/repositório, o que mostra que poucos outros repositórios extrapolam o valor da mediana.
 
-![Figura 4 - Histograma de Idade dos Repositórios](graficos/grafico-rq4.png "Figura 4 - Histograma de Idade dos Repositórios")
+![Figura 3 - Histograma de Média de Releases Por Mês](graficos/grafico-rq3.png "Figura 3 - Histograma de Média de Releases Por Mês")
 
-**Figura 4 - Histograma de Idade dos Repositórios**
+**Figura 3 - Histograma de Média de Releases Por Mês**
 
-![Tabela 4 - Histograma de Idade dos Repositórios](tabelas/tabela-rq4.jpg "Tabela 4 - Histograma de Idade dos Repositórios")
+![Tabela 3 - Tabela de Média de Releases Por Mês](tabelas/tabela-rq3.jpg "Tabela 3 - Tabela de Média de Releases Por Mês")
 
-**Tabela 4 - Histograma de Idade dos Repositórios**
+**Tabela 3 - Tabela de Média de Releases Por Mês**
+<br></br>
 
-![Tabela 5 - Histograma de Idade dos Repositórios](tabelas/tabela-rq5.jpg "Tabela 5 - Histograma de Idade dos Repositórios")
+## **4.4. RQ 04**
 
-**Tabela 5 - Histograma de Idade dos Repositórios**
+Observa-se no Gráfico 4 que grande parte dos repositórios tem até 3 dias da última atualização. Detalhando os valores obtidos, obtem-se a média de 2,4121 dias de tempo atualização e uma mediana de 1,2187, indicando que aproximadamente 50% dos repositórios tiverem atualização no dia anterior.
 
-![Figura 6 - Histograma de Idade dos Repositórios](graficos/grafico-rq6.png "Figura 6 - Histograma de Idade dos Repositórios")
+![Figura 4 - Histograma de Tempo da Última Atualização](graficos/grafico-rq4.png "Figura 4 - Histograma de Tempo da Última Atualização")
 
-**Figura 6 - Histograma de Idade dos Repositórios**
+**Figura 4 - Histograma de Tempo da Última Atualização**
 
-![Tabela 6 - Histograma de Idade dos Repositórios](tabelas/tabela-rq6.jpg "Tabela 6 - Histograma de Idade dos Repositórios")
+![Tabela 4 - Tabela de Tempo da Última Atualização](tabelas/tabela-rq4.jpg "Tabela 4 - Tabela de Tempo da Última Atualização")
 
-**Tabela 6 - Histograma de Idade dos Repositórios**
+**Tabela 4 - Tabela de Tempo da Última Atualização**
+<br></br>
+
+## **4.5. RQ 05**
+
+A tabela abaixo mostra as 10 linguagens mais populares de 2022 e quantos repositórios da coleta utilizam elas como linguagem principal. No total, 652 repositórios se encaixam, representando 65,2% de todos os repositórios coletados.
+
+![Tabela 5 - Tabela de Repositórios por Linguagens](tabelas/tabela-rq5.jpg "Tabela 5 - Tabela de Repositórios por Linguagens")
+
+**Tabela 5 - Tabela de Repositórios por Linguagens**
+<br></br>
+
+## **4.6. RQ 06**
+
+Observa-se na Figura 6 e na Tabela 6 que grande parte dos repositórios possuem mais de 50% de issues fechadas. A mediana desses valores é de 85,99%, indicando que 50% dos repositórios possuem quase a totatalidade de issues como issues fechadas. A média das porcentagens é de 76,78%, corroborando com a concentração mostrada no gráfico.
+
+![Figura 6 - Histograma de % de Issues Fechadas](graficos/grafico-rq6.png "Figura 6 - Histograma de % de Issues Fechadas")
+
+**Figura 6 - Histograma de % de Issues Fechadas**
+
+![Tabela 6 - Tabela de % de Issues Fechadas](tabelas/tabela-rq6.jpg "Tabela 6 - Tabela de % de Issues Fechadas")
+
+**Tabela 6 - Tabela de % de Issues Fechadas**
 
 # 5. Discussão
 
+A partir dos resultados obtidos, pode-se realizar um comparativo entre eles e as hipóteses propostas.
+
+**RQ 01. Sistemas populares são maduros/antigos?**
+
+A apresentação dos resultados demonstra a concentração de repositórios com idade entre 5 à 9 anos, sendo minoria tanto os repositórios recentes quantos os mais antigos à esse período. Nesse sentido, os mesmos confirmam a hipótese levantada, quando considerado repositórios maduros como aqueles com mais de 5 anos, pois os sistemas populares possuem em sua maioria entre 5 à 9 anos, incluindo também aqueles que possuem mais que 9 anos de idade.  
+
+**RQ 02. Sistemas populares recebem muita contribuição externa?**
+
+Os resultados obtidos indicam que grande parcela dos repositórios populares não recebem mais que 15000 contribuições externas, sendo essa representada por 949 dos 1000 repositórios coletados. Dessa forma, os mesmos são contrários à hipótese proposta, pois o esperado seria que grande parcela dos repositórios populares possuíse muita contribuição externa, porém o resultado obtido demonstra que o número de contribuições externas não varia muito entre boa parte dos repositórios, entretanto existem poucos repositórios que possuem um número maior de contribuições.
+
+**RQ 03. Sistemas populares lançam releases com frequência?**
+	
+Segundo os resultados, os repositórios populares possuem em média 6 releases por mês, sendo poucos os que possuem mais de 6 releases por mês. Assim, conclui-se que está em concordância com a hipótese proposta, pois como a mesma baseia-se no uso de metodologias ágeis, em específico SCRUM, o qual não estabelece tempo mínimo de sprint, pode-se observar que a quantidade de releases em 30 dias respeitaria o princípio de entrega continua do framework. Além disso, a frequência de 6 releases no período de 30 dias contabiliza 1 release a cada 5 dias, o que pode ser considerado uma frequência adequada.
+
+**RQ 04. Sistemas populares são atualizados com frequência?**
+
+De acordo com os resultados obtidos, a maior parte dos repositórios são atualizados na frequência de 3 dias, podendo concluir que os sistemas populares são frequentemente atualizados, pois 3 dias não representam ameaça ao estado de funcionamento do sistema.
+
+**RQ 05. Sistemas populares são escritos nas linguagens mais populares?**
+	
+Os resultados obtidos constataram que as linguagens principais utilizadas em mais de 100 repositórios populares são JavaScript, Python e TypeScript, o que não confirma totalmente a hipótese proposta, pois conforme os dados levantados pelo GitHub, em 2022 as 3 linguagens mais utilizadas foram JavaScript, Python e Java, deixando a parte TypeScript o qual se encontra na posição de 4° linguagem mais utilizada pelos desenvolvedores. Em vista disso, esse comportamento pode-se advir de vários fatores incluindo o fato de que foi constatado que os repositórios populares possuem em sua maioria 5 à 9 anos de idade, enquanto isso a linguagem TypeScript se qualificou como uma das 10 linguagens mais utilizadas apenas a partir de 2017. Ou seja, é possível que boa parte dos sistemas populares foram criados em um momento que Java possuía popularidade maior à de TypeScript. 
+
+**RQ 06. Sistemas populares possuem um alto percentual de issues fechadas?**
+	
+Os resultados obtidos indicam que metade dos repositórios possuem quase todas as issues existentes como fechadas. Dessa forma, os resultados reafirmam a hipótese proposta, devido ao fato de que considerando a idade dos repositórios, em sua maioria estão em fases estáveis de desenvolvimento sendo fácil de solucionar as issues abertas quando comparado ao progresso realizado anteriormente no desenvolvimento do sistema.  
 
 
 
