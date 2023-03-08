@@ -2,8 +2,12 @@
 import requests
 import pandas as pd
 import datetime
+import matplotlib.pyplot as plot
 
-headers = {"Authorization": "bearer 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"}
+# colocar token aqui
+token = "eOVIR7AwkNb7mzKjuY4UoGSqedkBkL0dC4nu"
+
+headers = {"Authorization": "bearer ghp_"+token}
 
 allResults = []
 
@@ -42,6 +46,7 @@ query = """
 
 endCursor = "null"
 
+error = 0
 while (len(allResults) < 1000):
     request = requests.post('https://api.github.com/graphql',
                             json={'query': query}, headers=headers)
@@ -52,7 +57,13 @@ while (len(allResults) < 1000):
                               ['search']['pageInfo']['endCursor']+'"')
         endCursor = '"'+result['data']['search']['pageInfo']['endCursor']+'"'
     else:
-        continue
+        error += 1
+        if (error > 5):
+            print("Error na chamada da api do git hub")
+            print(result)
+            break
+        else:
+            continue
 
 
 print("All Results - {}".format(allResults))
@@ -60,10 +71,6 @@ print("All Results Size - ")
 print(len(allResults))
 
 # fields = list(allResults[0].keys())
-
-# with open('dados.csv', 'w') as f:
-# write = csv.DictWriter(f, fieldnames=fields, dialect='unix')
-# write.writeheader()
 
 for result in allResults:
     result['pullRequests'] = result['pullRequests']['totalCount']
@@ -86,4 +93,6 @@ df = pd.DataFrame(allResults)
 
 df.to_csv('dados.csv', index=False)
 
-# write.writerow(result)
+b_plot = df.boxplot(column='pullRequests')
+b_plot.plot()
+plot.show()
