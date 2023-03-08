@@ -85,9 +85,18 @@ def ageInMonths(createdAt):
   if time.microseconds > 0:
     microseconds = time.microseconds/(3600000*30)
 
+  print(time.days)
+  print(days)
+  print(time.seconds)
+  print(seconds)
+  print(time.microseconds)
+  print(microseconds)
+
   months = days + seconds + microseconds
 
-  return months
+  print(months)
+
+  return float(months)
 
 def differenceInDays(updatedAt):
   time = today - updatedAt
@@ -134,7 +143,7 @@ for result in allResults:
 
 df = pd.DataFrame(allResults)
 
-df.to_csv('dados.csv', index=False)
+df.to_csv('dados.csv', index=False, sep=';')
 
 ageHist = df.hist(column='ageInYears',bins=7)
 
@@ -150,6 +159,6 @@ plot.savefig('graficos/prHist.png')
 
 releasesHist = df.hist(column='releasesMonth',bins=4)
 
-plot.title('Quantidade de Repositórios x Número de Releases por Mês')
+plot.title('Quantidade de Repositórios x Média de Releases por Mês')
 
 plot.savefig('graficos/releaseHist.png')
